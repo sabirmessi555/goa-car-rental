@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Goa Car Rental | Self Drive Cars in Goa</title>
+    <meta name="description" content="Book self-drive rental cars in Goa. Choose from hatchbacks, sedans and SUVs with convenient pickup and drop across Goa.">
+
+    <style>
+         :root {
+            --navy: #062b59;
+            --blue: #0876c9;
+            --yellow: #ffd42a;
+            --ink: #172b43;
+            --pale: #eef7ff;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--ink);
+            background: #f7fbff;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(115deg, #e7f5ff, #fff 55%, #d9efff);
+            padding: 24px 16px 28px;
+            text-align: center;
+            border-bottom: 4px solid var(--yellow);
+            animation: headerAppear 1s ease;
+        }
+        
+        @keyframes headerAppear {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .brand {
+            font-size: clamp(30px, 6vw, 52px);
+            font-weight: 900;
+            color: var(--navy);
+            letter-spacing: -1.5px;
+            animation: brandAppear 1.2s ease, brandBounce 4s ease-in-out infinite 1.2s;
+            display: inline-block;
+        }
+        
+        @keyframes brandAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes brandBounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .tag {
+            font-weight: 700;
+            color: #24618e;
+            margin-top: 6px;
+            animation: fadeIn 1.5s ease, glowPulse 3s infinite ease-in-out;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes glowPulse {
+            0%,
+            100% {
+                opacity: 0.85;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.03);
+            }
+        }
+        
+        .hero {
+            max-width: 1050px;
+            margin: 18px auto 0;
+            padding: 18px;
+            border-radius: 18px;
+            background: linear-gradient(120deg, #063366, #0876c9);
+            background-size: 200% 200%;
+            color: white;
+            animation: heroAppear 1s ease, gradientMove 6s ease infinite;
+            box-shadow: 0 8px 25px #0876c933;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .hero:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px #0876c955;
+        }
+        
+        @keyframes heroAppear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .hero h1 {
+            margin: 0 0 8px;
+            font-size: clamp(25px, 4vw, 38px);
+            animation: heroTextPop 1s ease 0.3s backwards;
+        }
+        
+        @keyframes heroTextPop {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            animation: heroTextPop 1s ease 0.5s backwards;
+        }
+        
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 24px 16px;
+        }
+        
+        h2 {
+            color: var(--navy);
+            text-align: center;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+        
+        .intro {
+            text-align: center;
+            margin: 0 auto 22px;
+            max-width: 720px;
+            line-height: 1.5;
+        }
+        
+        .cars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+        
+        .car {
+            background: white;
+            border: 1px solid #c8d9e9;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 16px #062b5912;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        
+        .car:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px #062b5930;
+            border-color: var(--blue);
+        }
+        
+        .car h3 {
+            margin: 0;
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 12px 8px;
+            font-size: 18px;
+            transition: background 0.3s ease, letter-spacing 0.3s ease;
+        }
+        
+        .car:hover h3 {
+            background: var(--blue);
+            letter-spacing: 0.5px;
+        }
+        /* Equal image sizes */
+        
+        .photo {
+            width: 100%;
+            height: 240px;
+            flex: 0 0 240px;
+            background: #f1f6fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            overflow: hidden;
+        }
+        
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border-radius: 6px;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+        
+        .car:hover .photo img {
+            transform: scale(1.09);
+            filter: brightness(1.05);
+        }
+        
+        .photo-pending {
+            color: #61758a;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+        /* Price */
+        
+        .price {
+            margin: 14px auto 10px;
+            background: var(--yellow);
+            color: #111;
+            padding: 9px 18px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 900;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        
+        .car:hover .price {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px #ffd42a88;
+        }
+        /* New quantity selector */
+        
+        .quantity-area {
+            text-align: center;
+            padding: 5px 12px 18px;
+        }
+        
+        .quantity-label {
+            display: block;
+            font-size: 13px;
+            color: #61758a;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .quantity-btn {
+            width: 38px;
+            height: 38px;
+            padding: 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: 900;
+            color: white;
+            background: var(--navy);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--blue);
+            transform: scale(1.12);
+            box-shadow: 0 4px 12px #0876c944;
+        }
+        
+        .quantity-btn:active {
+            transform: scale(0.9);
+        }
+        
+        .quantity-number {
+            min-width: 28px;
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--navy);
+            display: inline-block;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        
+        .quantity-number.pop {
+            animation: numPop 0.3s ease;
+        }
+        
+        @keyframes numPop {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.4);
+                color: var(--blue);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .selected {
+            color: #087b45;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 7px;
+            min-height: 15px;
+            transition: all 0.3s ease;
+        }
+        /* Selected cars summary */
+        
+        .selection-summary {
+            background: white;
+            border: 2px solid #c8d9e9;
+            border-radius: 16px;
+            padding: 18px;
+            margin: 25px 0;
+            box-shadow: 0 5px 16px #062b5912;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .selection-summary:hover {
+            box-shadow: 0 8px 24px #062b591a;
+            border-color: var(--blue);
+        }
+        
+        .selection-summary h3 {
+            color: var(--navy);
+            text-align: center;
+            margin: 0 0 12px;
+            font-size: 21px;
+        }
+        
+        .selection-list {
+            text-align: center;
+            line-height: 1.9;
+            color: var(--ink);
+        }
+        
+        .selection-list div {
+            animation: itemSlide 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes itemSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .selection-total {
+            text-align: center;
+            color: #087b45;
+            font-size: 18px;
+            font-weight: 900;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 14px;
+            margin: 28px 0;
+        }
+        
+        .feature {
+            background: var(--pale);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 25px #0876c922;
+            background: #e4f2fe;
+        }
+        
+        .feature strong {
+            display: block;
+            color: var(--navy);
+            font-size: 18px;
+            margin-bottom: 7px;
+            transition: color 0.3s ease;
+        }
+        
+        .feature:hover strong {
+            color: var(--blue);
+        }
+        
+        .panel {
+            background: white;
+            border: 1px solid #d5e2ee;
+            border-radius: 16px;
+            padding: 22px;
+            margin: 22px 0;
+            transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+        }
+        
+        .panel:hover {
+            box-shadow: 0 10px 28px #062b5918;
+            transform: translateY(-3px);
+            border-color: #b8d0e5;
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+        
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #bdcddd;
+            border-radius: 9px;
+            font: inherit;
+            background: white;
+            transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+        }
+        
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px #0876c922;
+            transform: translateY(-2px);
+        }
+        
+        textarea {
+            grid-column: 1/-1;
+            min-height: 85px;
+        }
+        
+        button,
+        .cta {
+            border: 0;
+            border-radius: 10px;
+            background: #087b45;
+            color: white;
+            padding: 14px 18px;
+            font-size: 17px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        
+        button:hover,
+        .cta:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 8px 20px #087b4544;
+            background: #065e35;
+        }
+        
+        button:active,
+        .cta:active {
+            transform: scale(0.96);
+        }
+        
+        form button {
+            grid-column: 1/-1;
+        }
+        
+        .links {
+            text-align: center;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        footer {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 22px 14px;
+            line-height: 1.7;
+            transition: background 0.4s ease, letter-spacing 0.4s ease;
+        }
+        
+        footer:hover {
+            background: #0876c9;
+            letter-spacing: 0.3px;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media(max-width:560px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            .photo {
+                height: 190px;
+                flex: 0 0 190px;
+            }
+            .hero {
+                margin: 14px 10px 0;
+            }
+            .brand {
+                letter-spacing: -.8px;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="brand">🚘 Goa Car Rental</div>
+        <div class="tag">DRIVE • EXPLORE • ENJOY</div>
+
+        <div class="hero">
+            <h1>Explore Goa Your Way!</h1>
+            <p>Choose your self-drive car and enjoy Goa at your own pace. Pickup and drop can be arranged across Goa; final availability and charges are confirmed before booking.</p>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="cars">
+            <h2>Our Cars</h2>
+            <p class="intro">Choose a car for your Goa trip. Prices are per day; confirm availability and final charges before booking.</p>
+
+            <div class="cars">
+
+                <div class="car reveal" data-car="i10" data-price="1200">
+                    <h3>i10</h3>
+                    <div class="photo"><img src="images/car-01.jpeg" alt="i10 self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹1,200 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Ignis" data-price="1200">
+                    <h3>Ignis</h3>
+                    <div class="photo"><img src="images/car-02.jpeg" alt="Ignis self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹1,200 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="WagonR" data-price="1200">
+                    <h3>WagonR</h3>
+                    <div class="photo"><img src="images/car-03.jpeg" alt="WagonR self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹1,200 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Swift" data-price="1300">
+                    <h3>Swift</h3>
+                    <div class="photo"><img src="images/car-04.jpeg" alt="Swift self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹1,300 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Baleno" data-price="1500">
+                    <h3>Baleno</h3>
+                    <div class="photo"><img src="images/car-05.jpeg" alt="Baleno self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹1,500 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="i20" data-price="1800">
+                    <h3>i20</h3>
+                    <div class="photo"><img src="images/car-06.jpeg" alt="i20 self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹1,800 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Fronx" data-price="1700">
+                    <h3>Fronx</h3>
+                    <div class="photo"><img src="images/car-07.jpeg" alt="Fronx self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹1,700 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Seltos" data-price="1700">
+                    <h3>Seltos</h3>
+                    <div class="photo"><img src="images/car-08.jpeg" alt="Seltos self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹1,700 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Ertiga" data-price="2500">
+                    <h3>Ertiga</h3>
+                    <div class="photo"><img src="images/car-09.jpeg" alt="Ertiga self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹2,500 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Creta" data-price="2800">
+                    <h3>Creta</h3>
+                    <div class="photo"><img src="images/car-10.jpeg" alt="Creta self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹2,800 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Thar Hard Top" data-price="4200">
+                    <h3>Thar Hard Top</h3>
+                    <div class="photo"><img src="images/car-11.jpeg" alt="Thar Hard Top self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹4,200 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Crysta" data-price="3800">
+                    <h3>Crysta</h3>
+                    <div class="photo"><img src="images/car-12.jpeg" alt="Crysta self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹3,800 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Thar Convertible" data-price="4500">
+                    <h3>Thar Convertible</h3>
+                    <div class="photo"><img src="images/car-13.jpeg" alt="Thar Convertible self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹4,500 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Hycross" data-price="4000">
+                    <h3>Hycross</h3>
+                    <div class="photo"><img src="images/car-14.jpeg" alt="Hycross self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹4,000 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+                <div class="car reveal" data-car="Rox" data-price="6000">
+                    <h3>Rox</h3>
+                    <div class="photo"><img src="images/car-15.jpeg" alt="Rox self-drive rental car" loading="lazy"></div>
+                    <div class="price">₹6,000 / day</div>
+                    <div class="quantity-area">
+                        <span class="quantity-label">Select Quantity</span>
+                        <div class="quantity-control">
+                            <button type="button" class="quantity-btn minus">−</button>
+                            <span class="quantity-number">0</span>
+                            <button type="button" class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="selected"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Selected car summary -->
+
+        <section class="selection-summary reveal">
+            <h3>🛒 Your Selected Cars</h3>
+            <div class="selection-list" id="selectionList">
+                No cars selected yet.
+            </div>
+            <div class="selection-total" id="selectionTotal">
+                Total Cars: 0
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature reveal"><strong>35+ Cars</strong>Multiple vehicle options for your trip, subject to availability.</div>
+            <div class="feature reveal"><strong>Pickup &amp; Drop Across Goa</strong>Pickup and drop can be arranged anywhere in Goa.</div>
+            <div class="feature reveal"><strong>Easy WhatsApp Booking</strong>Send your trip details and receive booking confirmation.</div>
+            <div class="feature reveal"><strong>Self-Drive Freedom</strong>Explore Goa on your own schedule.</div>
+        </section>
+
+        <section class="panel reveal" id="book">
+            <h2>Book Your Car</h2>
+            <p class="intro">Fill in your details. Your booking request will open in WhatsApp for confirmation.</p>
+
+            <form id="booking">
+                <input name="name" placeholder="Your Name" required>
+                <input name="mobile" placeholder="Mobile Number" required>
+
+                <select name="car" required>
+                    <option value="">Select Car Type</option>
+                    <option>i10</option>
+                    <option>Ignis</option>
+                    <option>WagonR</option>
+                    <option>Swift</option>
+                    <option>Baleno</option>
+                    <option>i20</option>
+                    <option>Fronx</option>
+                    <option>Seltos</option>
+                    <option>Ertiga</option>
+                    <option>Creta</option>
+                    <option>Thar Hard Top</option>
+                    <option>Crysta</option>
+                    <option>Thar Convertible</option>
+                    <option>Hycross</option>
+                    <option>Rox</option>
+                </select>
+
+                <input name="pickupDate" placeholder="Pickup Date &amp; Time" required>
+                <input name="returnDate" placeholder="Return Date &amp; Time" required>
+                <input name="pickup" placeholder="Pickup Location" required>
+                <input name="drop" placeholder="Drop Location" required>
+
+                <textarea name="message" placeholder="Message (optional)"></textarea>
+
+                <button type="submit">Send Booking Request on WhatsApp</button>
+            </form>
+        </section>
+
+        <section class="panel reveal">
+            <h2>About Us</h2>
+            <p>Goa Car Rental offers self-drive car rental options for visitors exploring Goa. With a range of vehicles, we aim to make your journey comfortable and convenient. Pickup and drop can be arranged across Goa; location-based charges are confirmed
+                before booking.</p>
+
+            <h2>Rental Terms</h2>
+            <ul>
+                <li>Standard 24-hour rental timing is 9:00 AM to 9:00 AM.</li>
+                <li>Pickup and drop are available across Goa, subject to location and distance. Any applicable charges will be confirmed before booking.</li>
+                <li>Security deposit is separate from the rental amount.</li>
+                <li>Car model, availability, price and booking are confirmed directly with Goa Car Rental.</li>
+                <li>Please carry valid driving licence and required identification documents.</li>
+            </ul>
+        </section>
+
+        <section class="panel reveal">
+            <h2>Contact Goa Car Rental</h2>
+            <p style="text-align:center">Call / WhatsApp: <strong>+91 70589 87193</strong></p>
+
+            <div class="links">
+                <a class="cta" href="https://wa.me/917058987193">Chat on WhatsApp</a>
+                <a class="cta" style="background:#0757a6" href="https://g.page/r/CWaUHwSKRIexECE/review">Write a Google Review</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        Explore Goa with Goa Car Rental<br> Comfortable Rides • Affordable Rates • Reliable Service
+    </footer>
+
+    <script>
+        // Car quantity selection
+
+        const carCards = document.querySelectorAll('.car');
+
+        function updateSummary() {
+
+            let selectedCars = [];
+            let totalCars = 0;
+            let totalPrice = 0;
+
+            carCards.forEach(function(card) {
+
+                const name = card.dataset.car;
+                const price = Number(card.dataset.price);
+                const quantity = Number(card.querySelector('.quantity-number').textContent);
+
+                if (quantity > 0) {
+
+                    selectedCars.push({
+                        name: name,
+                        quantity: quantity,
+                        price: price
+                    });
+
+                    totalCars += quantity;
+                    totalPrice += quantity * price;
+                }
+            });
+
+            const list = document.getElementById('selectionList');
+            const total = document.getElementById('selectionTotal');
+
+            if (selectedCars.length === 0) {
+                list.textContent = 'No cars selected yet.';
+            } else {
+
+                list.innerHTML = selectedCars.map(function(car) {
+                    return '<div><strong>' + car.name +
+                        '</strong> × ' + car.quantity +
+                        ' = ₹' + (car.price * car.quantity).toLocaleString('en-IN') +
+                        ' / day</div>';
+                }).join('');
+            }
+
+            total.textContent =
+                'Total Cars: ' + totalCars +
+                ' | Total Price: ₹' + totalPrice.toLocaleString('en-IN') + ' / day';
+        }
+
+        carCards.forEach(function(card) {
+            const minusBtn = card.querySelector('.minus');
+            const plusBtn = card.querySelector('.plus');
+            const numSpan = card.querySelector('.quantity-number');
+            const selectedTag = card.querySelector('.selected');
+
+            minusBtn.addEventListener('click', function() {
+                let current = Number(numSpan.textContent);
+                if (current > 0) {
+                    current--;
+                    numSpan.textContent = current;
+                    triggerPop(numSpan);
+                    updateCarState();
+                }
+            });
+
+            plusBtn.addEventListener('click', function() {
+                let current = Number(numSpan.textContent);
+                current++;
+                numSpan.textContent = current;
+                triggerPop(numSpan);
+                updateCarState();
+            });
+
+            function triggerPop(el) {
+                el.classList.remove('pop');
+                void el.offsetWidth; // Trigger reflow for animation restart
+                el.classList.add('pop');
+            }
+
+            function updateCarState() {
+                const count = Number(numSpan.textContent);
+                if (count > 0) {
+                    selectedTag.textContent = count + ' Selected';
+                } else {
+                    selectedTag.textContent = '';
+                }
+                updateSummary();
+            }
+        });
+
+        // Scroll Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+
+</html>
